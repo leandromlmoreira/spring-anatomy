@@ -30,7 +30,7 @@ class ViaCepConsultaEnderecoTest {
 
     @Test
     void cepInexistenteViraVazio() {
-        when(client.buscar("99999999")).thenReturn(new ViaCepResposta(null, null, null, null, null, null, null, null, true));
+        when(client.buscar("99999999")).thenReturn(new ViaCepResposta(null, null, null, null, null, null, null, null, "true"));
 
         assertThat(viaCep.consultar("99999999")).isEmpty();
     }

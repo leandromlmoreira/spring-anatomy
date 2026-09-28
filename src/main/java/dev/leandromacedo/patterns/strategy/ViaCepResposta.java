@@ -11,10 +11,10 @@ public record ViaCepResposta(
         String uf,
         String ibge,
         String ddd,
-        Boolean erro) {
+        String erro) {
 
     boolean encontrado() {
-        return !Boolean.TRUE.equals(erro);
+        return !"true".equalsIgnoreCase(erro);
     }
 
     Endereco paraEndereco(String cepNormalizado) {
