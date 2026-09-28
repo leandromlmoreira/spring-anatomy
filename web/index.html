@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spring Anatomy: padrões de projeto numa API Spring real</title>
+    <meta name="description" content="Explorador interativo de oito padrões de projeto aplicados numa API Spring Boot real, com diagrama animado, o código-fonte ao lado e demos que rodam no navegador." />
+    <meta name="theme-color" content="#0b0d0c" />
+    <meta property="og:title" content="Spring Anatomy" />
+    <meta property="og:description" content="Oito padrões de projeto dissecados dentro de uma API Spring Boot, com demos que rodam no navegador." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <a class="pular" href="#explorador">Pular para o explorador</a>
+    <header class="topo">
+      <a class="marca" href="#" aria-label="Spring Anatomy, início">
+        <svg class="marca__simbolo" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M9 7h14M9 25h14M11 7l10 3.6-10 3.6 10 3.6-10 3.6 10 3.6" />
+        </svg>
+        <span class="marca__nome">spring<strong>anatomy</strong></span>
+      </a>
+      <nav class="topo__links" aria-label="Seções">
+        <a href="#explorador">Explorador</a>
+        <a href="#rodar">Rodar local</a>
+        <a class="topo__github" href="https://github.com/leandromlmoreira/spring-anatomy" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /></svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="heroi" aria-labelledby="titulo-heroi">
+        <div class="heroi__texto">
+          <h1 id="titulo-heroi" class="heroi__titulo">Uma API Spring aberta, peça&nbsp;por&nbsp;peça.</h1>
+          <p class="heroi__sub">Oito padrões de projeto de um código real: diagrama animado, fonte ao lado e demo rodando no seu navegador.</p>
+          <div class="heroi__acoes">
+            <a class="cta" href="#explorador">
+              <span>Abrir o explorador</span>
+              <span class="cta__icone" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" /></svg></span>
+            </a>
+            <a class="cta cta--fantasma" href="https://github.com/leandromlmoreira/spring-anatomy" target="_blank" rel="noopener">Ver o código</a>
+          </div>
+        </div>
+        <figure class="heroi__diagrama" data-heroi-diagrama>
+          <figcaption class="heroi__legenda">O caminho de um <code>POST /clientes</code>. Clique num rótulo para abrir o padrão.</figcaption>
+        </figure>
+      </section>
+
+      <section id="explorador" class="explorador" aria-labelledby="titulo-explorador"></section>
+
+      <section id="rodar" class="rodar" aria-labelledby="titulo-rodar">
+        <h2 id="titulo-rodar" class="secao__titulo">Rode na sua máquina</h2>
+        <p class="secao__texto">
+          A interface funciona sozinha no navegador. A API é um Spring Boot 3 com Java 21, H2 em memória e Swagger:
+          <span data-numero="classes"></span> classes de produção e <span data-numero="testes"></span> classes de teste.
+        </p>
+        <div class="rodar__grade">
+          <article class="terminal">
+            <header class="terminal__topo">
+              <h3>API Spring</h3>
+              <button type="button" class="terminal__copiar" data-copiar="cmd-api">Copiar</button>
+            </header>
+            <pre id="cmd-api"><code>./mvnw spring-boot:run
+./mvnw test</code></pre>
+            <p class="terminal__nota">Swagger em <code>localhost:8080/swagger-ui.html</code>. Sem rede, use <code>--anatomy.endereco.estrategia=offline</code>.</p>
+          </article>
+          <article class="terminal">
+            <header class="terminal__topo">
+              <h3>Interface</h3>
+              <button type="button" class="terminal__copiar" data-copiar="cmd-web">Copiar</button>
+            </header>
+            <pre id="cmd-web"><code>cd web
+npm install
+npm run dev</code></pre>
+            <p class="terminal__nota">Vite em <code>localhost:5173</code>. <code>npm test</code> roda o Vitest e <code>npm run test:e2e</code> o Playwright.</p>
+          </article>
+          <article class="rotas">
+            <h3>Rotas da API</h3>
+            <dl>
+              <div><dt>POST</dt><dd>/clientes</dd></div>
+              <div><dt>PUT</dt><dd>/clientes/{id}</dd></div>
+              <div><dt>DELETE</dt><dd>/clientes/{id}</dd></div>
+              <div><dt>POST</dt><dd>/clientes/{id}/processamento?plano=premium</dd></div>
+              <div><dt>POST</dt><dd>/notificacoes</dd></div>
+              <div><dt>POST</dt><dd>/notificacoes/{id}/envio</dd></div>
+              <div><dt>GET</dt><dd>/auditoria</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>Spring Anatomy, por <a href="https://github.com/leandromlmoreira" target="_blank" rel="noopener">Leandro Macedo</a>.</p>
+      <p class="rodape__credito">Nasceu do lab de padrões de projeto com Spring da DIO.</p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
